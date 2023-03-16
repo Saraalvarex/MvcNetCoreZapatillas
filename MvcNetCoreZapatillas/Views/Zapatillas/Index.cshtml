@@ -1,0 +1,44 @@
+﻿@model List<Zapatilla>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#botonbuscarzapa").click(function () {
+                var idProducto = $("#botonbuscarzapa").val();
+                var idPosicion = $("#botonbuscarzapa").name();
+                var request = "/Zapatillas/Details?idposicion="1+"?idProducto" + idProducto;
+                $("#contenido").load(request);
+            })
+        })
+    </script>
+ }
+<ul class="list-group">
+    @foreach (Zapatilla zapa in Model)
+    {
+        <li class="list-group-item list-group-item-warning">
+            <a asp-controller="Zapatillas"
+               asp-action="Details"
+               asp-route-idproducto="@zapa.IdProducto"
+               class="btn btn-danger">
+                PRUEBAS @zapa.Nombre
+            </a>
+@*            <a asp-controller="Zapatillas"
+            asp-action="Details"
+            asp-route-idproducto="@zapa.IdProducto"
+                class="btn btn-outline-success">
+                CORRECTO @zapa.Nombre
+            </a>*@
+            <button id="botonbuscarzapa" class="btn btn-success" name="@zapa." value="@zapa.IdProducto">
+                CORRECTO @zapa.Nombre
+            </button>
+@*            <a asp-controller="Zapatillas"
+               asp-action="Details"
+               asp-route-idprodcuto="@zapa.IdProducto"
+               class="dropdown-item">
+               CORRECTO @zapa.Nombre
+            </a>*@
+        </li>
+    }
+</ul>
+<div id="contenido" class="border"></div>
+

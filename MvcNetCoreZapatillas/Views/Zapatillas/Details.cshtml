@@ -1,0 +1,28 @@
+﻿@model Zapatilla
+
+<ul class="list-group">
+    <li class="list-group-item list-group-item-dark">
+        <b>Nombre: @Model.Nombre</b>
+    </li>
+    <li class="list-group-item">
+        @Model.Descripcion    
+    </li>
+    <li class="list-group-item">
+        Precio: @Model.Precio
+    </li>
+</ul>
+@section Scripts {
+    <script>
+        $("#botonbuscarzapa").click(function () {
+            var idProducto = $("#botonbuscarzapa").val();
+            var idPosicion = $("#botonbuscarzapa").name();
+            var request = "/Zapatillas/Details?idposicion="1 + "?idProducto" + idProducto;
+            $("#contenido").load(request);
+        })
+    </script>
+ }
+@if (Model != null)
+{
+    <h1>Vista parcial zapas</h1>
+    <div id="contenido" class="border"></div>
+}

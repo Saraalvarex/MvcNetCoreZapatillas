@@ -1,0 +1,20 @@
+﻿@model List<ImagenZapatilla>
+
+<div class="card" style="width: 28rem;">
+    <div class="card-body">
+        <p class="card-text">Imagen 1 de 5</p>
+        <button type="button" class="btn btn-primary" onclick="paginarZapatilla(1, 1)">
+            Primero
+        </button>
+        <button type="button" onclick="paginarZapatilla(1, 1)">
+            Anterior
+        </button>
+        <button type="button" onclick="paginarZapatilla(2, 1)">
+            Siguiente
+        </button>
+        <button type="button" onclick="paginarZapatilla(5, 1)">
+            Ultimo
+        </button>
+    </div>
+@*    <img src="@Model.Imagen">*@
+</div>
